@@ -1,0 +1,42 @@
+.nav-papa{
+ 
+display: flex;
+    justify-content: center;
+    gap: 10rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+   
+   cursor: pointer; /* Este es para que el cursor al pasar por encima se convierta en una mano */
+}
+
+.div-casa:hover{
+    position: relative;
+    transform: scale(1.2);
+    transform:0;
+}
+.div-casa{
+
+   
+    width:5rem ;
+    height: 5rem;
+    
+    font-size: 4rem;
+    margin: 2rem;
+    position: relative;
+}
+.div-item {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
