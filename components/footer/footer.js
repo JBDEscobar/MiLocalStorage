@@ -1,4 +1,5 @@
-import { obtenerProductos } from "../../modulo/miLocalStorage.js";
+import { obtenerProductos } from "../../modulo/miLocalStorage.js";  
+import { obtenerCarrito } from "../../control/control(carrito).js";
 
 function footer() {
     let nav = document.createElement("footer");
@@ -20,13 +21,14 @@ function footer() {
     div3.textContent = "❓";
     nav.appendChild(div3);
 
-    let div4 = document.createElement("div");
+   let div4 = document.createElement("a");
     div4.className = "div-casa";
+    div4.href = "paguinas/carrito.html";
     div4.innerHTML = "🛒";
     
     let divItem = document.createElement('div');
     divItem.className = "div-item";
-    divItem.textContent = obtenerProductos().length;
+    divItem.textContent = obtenerCarrito().length; 
     
     div4.appendChild(divItem);
     nav.appendChild(div4);

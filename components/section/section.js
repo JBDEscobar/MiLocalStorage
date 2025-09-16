@@ -1,4 +1,6 @@
 import { productos } from "../../modulo/productos.js";
+import { agregarAlCarrito } from "../../control/control(carrito).js";
+
 
 function renderProductos() {
     const productosContainer = document.createElement('div');
@@ -14,11 +16,16 @@ function renderProductos() {
             <span class="genre">${producto.genre}</span>
             <span class="platform">${producto.platform}</span>
         `;
+        
+        productoCard.style.cursor = 'pointer';
+        productoCard.addEventListener('click', () => {
+            agregarAlCarrito(producto); 
+        });
+        
         productosContainer.appendChild(productoCard);
     });
     
     return productosContainer;
 }
-
 
 export { renderProductos };
