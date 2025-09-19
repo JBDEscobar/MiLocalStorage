@@ -1,22 +1,23 @@
+import { finalizarCompra } from '../control/carrito.js';
+
 const footer = document.createElement('footer');
 
+// Crear botón
+const boton = document.createElement('button');
+boton.textContent = 'Finalizar Compra';
+boton.id = 'btn-finalizar-compra';
 
-const botonLink = document.createElement('a');
-botonLink.href = "../index.html";
-botonLink.textContent = 'Finalizar Compra';
-botonLink.id = 'btn-finalizar-compra';
-botonLink.className = 'botonLink';
-
-
-botonLink.addEventListener('click', function(e) {
-   
-    alert('¡Compra finalizada con éxito!');
-   
+// Evento al botón
+boton.addEventListener('click', function() {
+    if (finalizarCompra()) {
+        alert('¡Compra finalizada con éxito!');
+        window.location.href = "../paginas/envios.html";
+    } else {
+        alert('Tu carrito está vacío');
+    }
 });
 
-
-footer.appendChild(botonLink);
-
+footer.appendChild(boton);
 export function footerCarrito() {
     return footer;
 }

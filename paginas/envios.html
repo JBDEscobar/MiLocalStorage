@@ -1,21 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>envios</title>
+    <title>Paquetería</title>
     <link rel="stylesheet" href="../components/header/header.css">
     <link rel="stylesheet" href="../config.css">
 </head>
 <body>
-    <div id="header"></div>
-   <div class="Envio"> <header>Envios</header></div>
+    <div id="header-container"></div>
     
-  <script type="module">
-    import { header } from '../components/header/header.js';
-       const headerContainer = document.getElementById('header');
+    <div id="app">
+        <h1>Paqueteria</h1>
+        <div id="info-envio">
+            <p>Tu pedido está siendo procesado y pronto será enviado.</p>
+           
+        </div>
+    </div>
+    
+    <script type="module">
+        import { header } from '../components/header/header.js';
+        import { obtenerPedidos } from '../control/carrito.js';
+        
+        // Añadir header
+        const headerContainer = document.getElementById('header-container');
         headerContainer.appendChild(header());
-  </script>
-    
+
+
+
+
+
+        const pedidos = obtenerPedidos();
+if (pedidos.length > 0) {
+    const ultimoPedido = pedidos[pedidos.length - 1];
+    document.getElementById('info-envio').innerHTML = `
+        <h2>Último Pedido</h2>
+        <p><strong>Fecha:</strong> ${ultimoPedido.fecha}</p>
+        <p><strong>Estado:</strong> ${ultimoPedido.estado}</p>
+        <p><strong>Productos:</strong> ${ultimoPedido.productos.length} items</p>
+    `;
+}
+        
+       
+    </script>
 </body>
 </html>
