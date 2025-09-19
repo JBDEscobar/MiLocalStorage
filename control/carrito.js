@@ -1,4 +1,3 @@
-// modulo/carritoManager.js
 const CARRITO = 'carrito';
 
 // Agregar producto al carrito

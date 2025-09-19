@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="../components/header/header.css">
+    <link rel="stylesheet" href="../config.css">
+    <link rel="stylesheet" href="../footerCarrito/footerCarrito.css">
+</head>
+<body>
+    <div id="header"></div>
+    <div id="app"></div>
+    <footer class="boton-envio"></footer>
+    
+    <script type="module">
+     
+        import { header } from '../components/header/header.js';
+        import { obtenerCarrito, vaciarCarrito } from '../control/carrito.js';
+        import { footerCarrito } from '../footerCarrito/footerCarrito.js';
+        
+        
+        const headerContainer = document.getElementById('header');
+        headerContainer.appendChild(header());
+
+        const footerContainer = document.querySelector('.boton-envio');
+        footerContainer.appendChild(footerCarrito(vaciarCarrito));
+        
+
+        const productos = obtenerCarrito();
+        const app = document.getElementById('app');
+        
+        app.innerHTML = `
+            
+            ${productos.length > 0 ? 
+                productos.map(producto => `
+                    <div class="producto-carrito">
+                        <img src="${producto.thumbnail}" alt="${producto.title}">
+                        <h3>${producto.title}</h3>
+                        <p>${producto.genre}</p>
+                    </div>
+                `).join('') 
+                : 
+                '<p>No hay productos en el carrito</p>'
+            }
+        `;
+    </script>
+</body>
+</html>

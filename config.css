@@ -20,3 +20,18 @@
     cursor: pointer;
     margin-top: 20px;
 }
+.Envio {
+   background-color: lightsalmon;
+   display: flex;
+   justify-content: center;
+   color: rgb(249, 246, 241);
+   height: 5rem;
+   margin-top: 3rem;
+}
+
+.Envio header {
+   padding-top: 2rem;
+   font-size: large;
+
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

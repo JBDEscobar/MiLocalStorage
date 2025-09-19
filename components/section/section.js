@@ -1,5 +1,5 @@
 import { productos } from "../../modulo/productos.js";
-import { agregarAlCarrito } from "../../control/control(carrito).js";
+import { agregarAlCarrito } from "../../control/carrito.js";
 
 
 function renderProductos() {
